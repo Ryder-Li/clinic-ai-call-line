@@ -53,10 +53,12 @@ async def media(ws: WebSocket):
     print("Twilio websocket connected")
 
     headers = {
-        "Authorization": f"Bearer {OPENAI_API_KEY}",
-    }
+    "Authorization": f"Bearer {OPENAI_API_KEY}",
+    "OpenAI-Beta": "realtime=v1",
+}
 
-    async with websockets.connect(OPENAI_WS_URL, extra_headers=headers) as oai:
+
+    async with websockets.connect(OPENAI_WS_URL, additional_headers=headers) as oai:
         # Configure session
         await oai.send(json.dumps({
             "type": "session.update",
