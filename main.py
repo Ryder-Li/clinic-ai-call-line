@@ -1,6 +1,7 @@
 from fastapi import FastAPI, WebSocket
 from fastapi.responses import Response
-import os, json, base64, asyncio, audioop
+import os, json, base64, asyncio
+import audioop_lts as audioop
 import websockets
 
 app = FastAPI()
